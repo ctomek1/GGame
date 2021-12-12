@@ -10,7 +10,7 @@ namespace Models
 
         [SerializeField] float timeUp = 5f;
 
-        float timeUpTimer;
+        public float timeUpTimer;
 
         public void Init()
         {

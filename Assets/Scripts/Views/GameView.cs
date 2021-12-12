@@ -7,6 +7,7 @@ namespace Views
     public class GameView : MonoBehaviour
     {
         [SerializeField] GameModel gameModel;
+        [SerializeField] TimeLeftUI timerToGameOver;
 
         void Start()
         {
@@ -16,6 +17,7 @@ namespace Views
         void Update()
         {
             gameModel.Evaluate(Time.deltaTime);
+            timerToGameOver.SetTimer((int)gameModel.timeUpTimer);
         }
     }
 }
