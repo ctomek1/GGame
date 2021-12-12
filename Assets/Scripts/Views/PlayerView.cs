@@ -24,7 +24,7 @@ namespace Views
 
         Vector3 GetFireDestination()
         {
-            var ray = cam.ViewportPointToRay(
+            var ray = cam.ScreenPointToRay(
                 new Vector3(Input.mousePosition.x,
                     Input.mousePosition.y,
                     Input.mousePosition.z));
