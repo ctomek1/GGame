@@ -11,7 +11,7 @@ public class PlayerInput : MonoBehaviour
         public float VerticalMovement { get => verticalMovement; set => verticalMovement = value; }
         public bool Sprinting { get => sprinting; set => sprinting = value; }
 
-        public void AssignPlayerInput()
+        public void ReadPlayerInput()
         {
             HorizontalMovement = Input.GetAxisRaw("Horizontal");
             VerticalMovement = Input.GetAxisRaw("Vertical");

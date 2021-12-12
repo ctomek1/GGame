@@ -11,10 +11,12 @@ namespace Views
         [SerializeField] PlayerModel playerModel;
         [SerializeField] Camera cam;
         [SerializeField] Animator anim;
+        [SerializeField] PlayerMovement playerMovement;
         private static readonly int DIE_TRIGGER = Animator.StringToHash("Die");
 
         void Update()
         {
+            playerMovement.HandleMovement();
             if (Input.GetMouseButton(0))
             {
                 var destination = GetFireDestination();

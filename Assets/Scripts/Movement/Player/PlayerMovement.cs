@@ -20,20 +20,20 @@ public class PlayerMovement : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
     }
 
-    private void Update()
+    public void HandleMovement()
     {
-        playerInput.AssignPlayerInput();
+        playerInput.ReadPlayerInput();
         RotatePlayerTowardsMouse();
         Move();
     }
 
-    public void Move()
+    private void Move()
     {
         Vector3 movement = new Vector3(playerInput.HorizontalMovement, 0.0f, playerInput.VerticalMovement);
         rb.AddForce(movement * moveSpeed, ForceMode.Acceleration);
     }   
 
-    public void RotatePlayerTowardsMouse()
+    private void RotatePlayerTowardsMouse()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit raycastHit))
