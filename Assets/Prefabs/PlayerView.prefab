@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3797899445327119343}
   m_Layer: 0
   m_Name: PlayerView
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   playerModel: {fileID: 11400000, guid: 028910cceffb556439b6d1c700f90900, type: 2}
   cam: {fileID: 0}
   anim: {fileID: 3797899445327119343}
+  playerMovement: {fileID: 0}
 --- !u!95 &3797899445327119343
 Animator:
   serializedVersion: 3
@@ -81,7 +82,7 @@ GameObject:
   - component: {fileID: 2359592307133008316}
   m_Layer: 0
   m_Name: Renderer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

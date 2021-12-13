@@ -1,16 +1,21 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Views;
 using UnityEngine;
 
-public abstract class BaseState : MonoBehaviour
+namespace StateMachine
 {
-    public BaseState(GameObject gameObject)
+    public abstract class BaseState
     {
-        this.gameObject = gameObject;
-        this.transform = gameObject.transform;
+        [SerializeField] protected WeaponView weaponView;
+        
+        protected BaseState(Enemy enemy)
+        {
+            this.enemy = enemy;
+        }
+
+        protected Enemy enemy;
+        public GameObject target;
+
+        public abstract Type Tick();
     }
-    protected GameObject gameObject;
-    protected Transform transform;
-    public abstract Type Tick();
 }
