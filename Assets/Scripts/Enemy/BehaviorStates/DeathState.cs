@@ -6,9 +6,10 @@ using UnityEngine;
 namespace StateMachine
 {
     public class DeathState : BaseState
-{
-        public DeathState(Enemy enemy) : base(enemy)
+    {
+        protected override void Awake()
         {
+            base.Awake();
         }
 
         public override Type Tick()

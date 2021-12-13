@@ -8,7 +8,11 @@ namespace StateMachine
     {
         private Dictionary<Type, BaseState> availableStates;
 
-        public BaseState CurrentState { get; private set; }
+        [SerializeField]
+        private BaseState currentState;
+
+        public BaseState CurrentState { get => currentState; set => currentState = value; }
+
         public event Action<BaseState> OnStateChanged;
 
         public void SetStates(Dictionary<Type, BaseState> states)
@@ -18,6 +22,7 @@ namespace StateMachine
 
         private void Update()
         {
+            Debug.LogError(availableStates[typeof(IddleState)]);
             if (CurrentState == null)
             {
                 CurrentState = availableStates[typeof(IddleState)];

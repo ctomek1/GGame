@@ -6,20 +6,35 @@ namespace StateMachine
 {
     public class IddleState : BaseState
     {
-        public IddleState(Enemy enemy) : base(enemy)
+        protected override void Awake()
         {
+            base.Awake();
         }
 
         public override Type Tick()
         {
-            Debug.LogError(target);
-            if (target != null)
+            if (Target != null)
             {
                 return typeof(AttackState);               
             }
             return null;
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.gameObject.CompareTag("Player"))
+            {
+                Target = other.gameObject;
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Target = null;
+            }
+        }
     }
 }
 

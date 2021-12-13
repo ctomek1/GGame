@@ -4,17 +4,19 @@ using UnityEngine;
 
 namespace StateMachine
 {
-    public abstract class BaseState
+    public abstract class BaseState : MonoBehaviour
     {
         [SerializeField] protected WeaponView weaponView;
         
-        protected BaseState(Enemy enemy)
+        protected virtual void Awake()
         {
-            this.enemy = enemy;
+            this.enemy = GetComponent<Enemy>();
         }
-
+            
         protected Enemy enemy;
-        public GameObject target;
+        private GameObject target;
+
+        public GameObject Target { get => target; set => target = value; }
 
         public abstract Type Tick();
     }

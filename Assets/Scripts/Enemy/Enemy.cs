@@ -18,9 +18,9 @@ public class Enemy : MonoBehaviour
     {
         var states = new Dictionary<Type, BaseState>()
         {
-            { typeof(IddleState), new IddleState(this) },
-            { typeof(AttackState), new AttackState(this) },
-            { typeof(DeathState), new DeathState(this) }
+            { typeof(IddleState), GetComponent<IddleState>() },
+            { typeof(AttackState), GetComponent<AttackState>() },
+            { typeof(DeathState), GetComponent<DeathState>() }
         };
         StateMachineManager stateMachineManager = GetComponent<StateMachineManager>();
         stateMachineManager.SetStates(states);
