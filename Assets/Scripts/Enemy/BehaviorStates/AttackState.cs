@@ -6,19 +6,24 @@ namespace StateMachine
 {
     public class AttackState : BaseState
     {
-        public AttackState(Enemy enemy) : base(enemy)
+        protected override void Awake()
         {
+            base.Awake();
         }
 
         public override Type Tick()
         {
-            enemy.gameObject.transform.LookAt(target.transform);
-            weaponView.Fire(target.transform.position);
-            if(target == null)
+            IddleState iddleState = GetComponent<IddleState>();
+            Target = iddleState.Target;
+            Debug.LogError("target: " + Target);
+            Debug.LogError(enemy);
+            enemy.gameObject.transform.LookAt(Target.transform);
+            weaponView.Fire(Target.transform.position);
+            if(Target == null)
             {
                 return typeof(IddleState);
             }
-            if(target.GetComponent<Health>().HpPoints == 0)
+            if(Target.GetComponent<Health>().HpPoints == 0)
             {
                 return typeof(DeathState);
             }
