@@ -6,14 +6,17 @@ public class Health : MonoBehaviour
 {
     [SerializeField]
     private float hpPoints = 100f;
-
+    [SerializeField]
+    private Damagable damagable;
     public float HpPoints { get => hpPoints; set => hpPoints = value; }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnEnable()
     {
-        if (other.gameObject.TryGetComponent(out DamageDealer damageDealer))
-        {
-            HpPoints -= damageDealer.Damage;
-        }
+        damagable.OnDamageTaken += LoseHp;
+    }
+
+    private void LoseHp(float hpLoss)
+    {
+        hpPoints -= hpLoss;
     }
 }
