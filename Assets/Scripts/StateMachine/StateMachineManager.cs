@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace StateMachine
@@ -20,12 +21,11 @@ namespace StateMachine
             availableStates = states;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            Debug.LogError(availableStates[typeof(IddleState)]);
             if (CurrentState == null)
             {
-                CurrentState = availableStates[typeof(IddleState)];
+                CurrentState = availableStates.Values.First();
             }
             var nextState = CurrentState?.Tick();
             if (nextState != null &&

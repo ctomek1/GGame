@@ -7,9 +7,9 @@ namespace StateMachine
 {
     public class DeathState : BaseState
     {
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
+            enemy = GetComponent<EnemyStateMachine>();
         }
 
         public override Type Tick()

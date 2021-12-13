@@ -6,26 +6,26 @@ namespace StateMachine
 {
     public class AttackState : BaseState
     {
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
+            enemy = GetComponent<EnemyStateMachine>();
         }
 
         public override Type Tick()
         {
-            IddleState iddleState = GetComponent<IddleState>();
-            Target = iddleState.Target;
-            Debug.LogError("target: " + Target);
-            Debug.LogError(enemy);
-            enemy.gameObject.transform.LookAt(Target.transform);
-            weaponView.Fire(Target.transform.position);
-            if(Target == null)
+            Debug.LogError(Target);
+            ChaseState chaseState = GetComponent<ChaseState>();
+            Target = chaseState.Target;
+
+            if(Target != null)
+            {
+                enemy.gameObject.transform.parent.LookAt(new Vector3(Target.transform.position.x, transform.position.y, Target.transform.position.z));
+                weaponView.Fire(Target.transform.position);
+            }     
+            
+            if(Target == null || Target.GetComponent<Health>().HpPoints == 0)
             {
                 return typeof(IddleState);
-            }
-            if(Target.GetComponent<Health>().HpPoints == 0)
-            {
-                return typeof(DeathState);
             }
             return null;
         }

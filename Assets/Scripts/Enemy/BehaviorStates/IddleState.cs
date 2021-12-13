@@ -5,36 +5,25 @@ using Views;
 namespace StateMachine
 {
     public class IddleState : BaseState
-    {
-        protected override void Awake()
+    {       
+        [SerializeField] private float aggroRange;
+        private PlayerInput player;
+        protected void Awake()
         {
-            base.Awake();
+            enemy = GetComponent<EnemyStateMachine>();
+            GetComponent<SphereCollider>().radius = weaponView.WeaponRangeForEnemies;
+            player = FindObjectOfType<PlayerInput>();
         }
 
         public override Type Tick()
         {
-            if (Target != null)
+            var distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
+            if(distance <= aggroRange)
             {
-                return typeof(AttackState);               
+                return typeof(ChaseState);
             }
             return null;
         }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if(other.gameObject.CompareTag("Player"))
-            {
-                Target = other.gameObject;
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                Target = null;
-            }
-        }
-    }
+    }    
 }
 

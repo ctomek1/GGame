@@ -7,8 +7,12 @@ namespace Views
     {
         [SerializeField] WeaponModel weaponModel;
         [SerializeField] Transform nozzle;
+        [SerializeField] float weaponRangeForEnemies;
 
         float timeToFire;
+
+        public float WeaponRangeForEnemies { get => weaponRangeForEnemies; set => weaponRangeForEnemies = value; }
+
         public bool CanFire(float time) => time >= timeToFire;
 
         public void Fire(Vector3 destination)
