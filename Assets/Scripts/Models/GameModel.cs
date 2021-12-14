@@ -9,6 +9,7 @@ namespace Models
         public static event Action<GameModel> OnGameFinished;
 
         [SerializeField] float timeUp = 5f;
+        [SerializeField] float incrementOnKill = 5f;
 
         public float timeUpTimer;
 
@@ -20,6 +21,11 @@ namespace Models
         public void Evaluate(float deltaTime)
         {
             EvaluateTimeUp(deltaTime);
+        }
+
+        public void IncrementTimerOnEnemyKill()
+        {
+            timeUpTimer += incrementOnKill;
         }
 
         void EvaluateTimeUp(float deltaTime)
