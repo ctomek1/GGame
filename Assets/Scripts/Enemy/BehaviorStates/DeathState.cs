@@ -1,20 +1,19 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Views;
 
 namespace StateMachine
 {
     public class DeathState : BaseState
     {
         protected void Awake()
-        {
-            enemy = GetComponent<EnemyStateMachine>();
+        {           
         }
 
         public override Type Tick()
         {
-            throw new NotImplementedException();
+            //getback enemy to spawner TODO
+            this.transform.parent.gameObject.SetActive(false);
+            return typeof(IddleState);
         }
     }
 }
