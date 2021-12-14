@@ -33,6 +33,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4042467417732326807}
   m_RootOrder: 2
@@ -138,8 +139,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4042467417732326807}
-  - component: {fileID: 6818862095824384988}
   - component: {fileID: 8257530047809189323}
+  - component: {fileID: 6818862095824384988}
+  - component: {fileID: 4964421387601054766}
   m_Layer: 0
   m_Name: Bob
   m_TagString: Enemy
@@ -157,6 +159,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 379195931856083858}
   - {fileID: 6615176280054917222}
@@ -164,6 +167,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8257530047809189323
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6687495598985626391}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d83cdd99ed68b6a47a159a095f237292, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6818862095824384988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,25 +203,19 @@ MonoBehaviour:
   anim: {fileID: 8257530047809189323}
   health: {fileID: 3006145667040079379}
   enemyStateMachine: {fileID: 1611749141466616455}
---- !u!95 &8257530047809189323
-Animator:
-  serializedVersion: 3
+  poolable: {fileID: 4964421387601054766}
+--- !u!114 &4964421387601054766
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6687495598985626391}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d83cdd99ed68b6a47a159a095f237292, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef2819662d1cbe44880110110db484d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8677379056439317543
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +248,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4042467417732326807}
   m_RootOrder: 0
@@ -254,6 +272,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -406,11 +425,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85c177edbebd1cf41a2d950c91a4b0b2, type: 3}
---- !u!4 &6615176280054917222 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4524411843370912604, guid: 85c177edbebd1cf41a2d950c91a4b0b2, type: 3}
-  m_PrefabInstance: {fileID: 7278981786769744698}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1695890632509168399 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8254289791347980341, guid: 85c177edbebd1cf41a2d950c91a4b0b2, type: 3}
@@ -422,3 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897e5400b86c4ce3b9d56354d2d73001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6615176280054917222 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4524411843370912604, guid: 85c177edbebd1cf41a2d950c91a4b0b2, type: 3}
+  m_PrefabInstance: {fileID: 7278981786769744698}
+  m_PrefabAsset: {fileID: 0}
