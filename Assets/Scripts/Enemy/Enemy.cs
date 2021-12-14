@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] Health.Health health;
     [SerializeField] StateMachineManager enemyStateMachine;
+    [SerializeField] Poolable poolable;
 
     private GameView game;
     private static readonly int DIE_TRIGGER = Animator.StringToHash("Die");
@@ -25,7 +26,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         game.OnEnemyKilled();
-        anim.SetTrigger(DIE_TRIGGER);
         enemyStateMachine.SwitchToNewState(typeof(DeathState));
+        poolable.ReturnToPool();
     }
 }
