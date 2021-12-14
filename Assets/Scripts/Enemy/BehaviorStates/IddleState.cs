@@ -17,7 +17,7 @@ namespace StateMachine
         public override Type Tick()
         {
             var distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
-            if(distance <= aggroRange && player.IsPlayerAlive)
+            if(distance <= aggroRange && player.IsPlayerAlive && player.Health.HpPoints > 0)
             {
                 return typeof(ChaseState);
             }
