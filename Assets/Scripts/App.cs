@@ -13,7 +13,7 @@ public class App : MonoBehaviour
 
     private void Awake()
     {
-        playerController = new PlayerController(this);
+        playerController = new PlayerController(this, Views.PlayerView.Health);
         logController = new LogController();
         gameController = new GameController();
         weaponController = new WeaponController(this);
