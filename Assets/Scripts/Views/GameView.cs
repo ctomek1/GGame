@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Models;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Views
 {
@@ -28,6 +30,11 @@ namespace Views
         {
             gameModel.IncrementTimerOnEnemyKill();
             killCounter++;
+        }
+
+        public void ResetGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
