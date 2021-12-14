@@ -21,12 +21,13 @@ namespace StateMachine
             availableStates = states;
         }
 
+        private void OnEnable()
+        {
+            CurrentState = availableStates.Values.First();
+        }
+
         private void FixedUpdate()
         {
-            if (CurrentState == null)
-            {
-                CurrentState = availableStates.Values.First();
-            }
             var nextState = CurrentState?.Tick();
             if (nextState != null &&
                 nextState != CurrentState?.GetType())
@@ -39,6 +40,7 @@ namespace StateMachine
         {
             CurrentState = availableStates[nextState];
             OnStateChanged?.Invoke(CurrentState);
+            Debug.LogError(CurrentState);
         }
     }   
 
