@@ -27,12 +27,13 @@ namespace Health
         private void LoseHp(float hpLoss)
         {            
             if(isInvincible == false)
-            {                
+            {
                 hpPoints -= hpLoss;
                 if (CheckIfDead())
                 {
                     OnCharacterDead?.Invoke();
                 }
+                else
                 StartCoroutine(Invincibility());
             }               
         }
