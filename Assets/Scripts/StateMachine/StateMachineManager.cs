@@ -35,7 +35,7 @@ namespace StateMachine
             }
         }
 
-        private void SwitchToNewState(Type nextState)
+        public void SwitchToNewState(Type nextState)
         {
             CurrentState = availableStates[nextState];
             OnStateChanged?.Invoke(CurrentState);
