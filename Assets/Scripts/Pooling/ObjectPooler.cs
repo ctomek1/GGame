@@ -15,9 +15,10 @@ public class ObjectPooler : MonoBehaviour
     private void Awake()
     {
         pool = new ObjectPool<Poolable>(CreateGameObject, OnTakePoolableFromPool, OnReturnPoolableToPool);
-        poolableObject.PoolableObject.gameObject.SetActive(false);
         for (int i = 0; i < poolableObject.PoolSize; i++)
-        {            var poolObject = pool.Get();
+        {
+            var poolObject = pool.Get();
+            poolObject.gameObject.SetActive(false);
             poolObject.gameObject.transform.position = GetRandomPosition().position;
             poolObject.transform.SetParent(gameObject.transform);
         }
@@ -43,7 +44,7 @@ public class ObjectPooler : MonoBehaviour
 
     private Transform GetRandomPosition()
     {
-        var index = UnityEngine.Random.Range(0, positions.Count + 1);
+        var index = UnityEngine.Random.Range(0, positions.Count);
         return positions[index];
     }
 
