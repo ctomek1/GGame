@@ -1,6 +1,7 @@
 using System;
 using Models;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Views
 {
@@ -13,6 +14,7 @@ namespace Views
         [SerializeField] Animator anim;
         [SerializeField] PlayerMovement playerMovement;
         [SerializeField] Health.Health health;
+        [SerializeField] GameObject restartButton;
         private static readonly int DIE_TRIGGER = Animator.StringToHash("Die");
         private bool isPlayerAlive = true;
 
@@ -21,6 +23,7 @@ namespace Views
         public bool IsPlayerAlive { get => isPlayerAlive; }
         public Health.Health Health { get => health;}
         public int EnemiesKilled { get => enemiesKilled; set => enemiesKilled = value; }
+        public GameObject RestartButton { get => restartButton; set => restartButton = value; }
 
         private void Awake()
         {
@@ -58,6 +61,7 @@ namespace Views
         {
             anim.SetTrigger(DIE_TRIGGER);
             PlayerDied();
+            restartButton.SetActive(true);
         }
 
         private void PlayerDied()
