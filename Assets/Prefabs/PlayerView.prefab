@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1914987243354519411}
   - component: {fileID: 5091798973201847451}
   - component: {fileID: 3219206228259332945}
+  - component: {fileID: 2136052811041340018}
   m_Layer: 0
   m_Name: PlayerView
   m_TagString: Player
@@ -53,7 +54,8 @@ MonoBehaviour:
   playerModel: {fileID: 11400000, guid: 028910cceffb556439b6d1c700f90900, type: 2}
   cam: {fileID: 0}
   anim: {fileID: 3797899445327119343}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 5091798973201847451}
+  health: {fileID: 3219206228259332945}
 --- !u!95 &3797899445327119343
 Animator:
   serializedVersion: 3
@@ -127,7 +129,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpPoints: 100
-  damagable: {fileID: 3159450188653628851}
+  damagable: {fileID: 2136052811041340018}
+  invincibilityFrameTime: 1
+--- !u!114 &2136052811041340018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622686023180284800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385d1470af7faa14e9e8ab39867d4040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6207571673747459643
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +155,6 @@ GameObject:
   - component: {fileID: 2596328597591449334}
   - component: {fileID: 5375927226011893731}
   - component: {fileID: 2359592307133008316}
-  - component: {fileID: 3159450188653628851}
   m_Layer: 0
   m_Name: Renderer
   m_TagString: Player
@@ -225,18 +239,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3159450188653628851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6207571673747459643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 385d1470af7faa14e9e8ab39867d4040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6021188975705239531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -265,20 +267,8 @@ PrefabInstance:
       value: 0.264
       objectReference: {fileID: 0}
     - target: {fileID: 4524411843370912604, guid: 85c177edbebd1cf41a2d950c91a4b0b2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524411843370912604, guid: 85c177edbebd1cf41a2d950c91a4b0b2, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524411843370912604, guid: 85c177edbebd1cf41a2d950c91a4b0b2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524411843370912604, guid: 85c177edbebd1cf41a2d950c91a4b0b2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4524411843370912604, guid: 85c177edbebd1cf41a2d950c91a4b0b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

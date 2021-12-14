@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d4d668960047b14bb0a27717e4b70f9, type: 3}
-  m_Name: PlayerModel
+  m_Script: {fileID: 11500000, guid: b73bfb4f392ea6f4ca5bda84a6b9314e, type: 3}
+  m_Name: BaseRiffleModel
   m_EditorClassIdentifier: 
-  healthPoints: 100
+  damage: 35

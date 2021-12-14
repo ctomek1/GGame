@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: GameModel
   m_EditorClassIdentifier: 
   timeUp: 5
+  incrementOnKill: 5
+  timeUpTimer: -36.407703

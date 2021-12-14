@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WeaponModel
   m_EditorClassIdentifier: 
   fireCooldown: 1
-  projectileSpeed: 10
+  projectileSpeed: 50
   projectilePrefab: {fileID: 8664306333909830739, guid: 4e27161daca3aa647983eddd324a84f9, type: 3}

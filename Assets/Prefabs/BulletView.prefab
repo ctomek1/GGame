@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 8878788543926462466}
   m_Layer: 0
   m_Name: BulletView
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoDestroyAfterSeconds: 4
+  bulletDamage: {fileID: 11400000, guid: d56264f7ac61d984a8872cf58ea3bd48, type: 2}
 --- !u!54 &3122393419564428924
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631fbfe32aadf4746b01a6eb19800cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
 --- !u!136 &8878788543926462466
 CapsuleCollider:
   m_ObjectHideFlags: 0

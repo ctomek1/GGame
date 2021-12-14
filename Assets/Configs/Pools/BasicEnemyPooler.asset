@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d4d668960047b14bb0a27717e4b70f9, type: 3}
-  m_Name: PlayerModel
+  m_Script: {fileID: 11500000, guid: 9373975c627c7964cbc8b75a27ad953a, type: 3}
+  m_Name: BasicEnemyPooler
   m_EditorClassIdentifier: 
-  healthPoints: 100
+  objectToPool: {fileID: 6687495598985626391, guid: 14bea5245fbda37409022c3214886144, type: 3}
+  poolSize: 20
