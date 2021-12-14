@@ -8,29 +8,19 @@ using System;
 public class ObjectPooler : MonoBehaviour
 {
     [SerializeField] private ObjectPoolerModel poolableObject;
-    [SerializeField] private int inactiveCount;
-    [SerializeField] private int activeCount;
+    [SerializeField] private List<Transform> positions;
 
     ObjectPool<Poolable> pool;
-
-    public int ActiveCount { get => activeCount; set => activeCount = value; }
-    public int InactiveCount { get => inactiveCount; set => inactiveCount = value; }
 
     private void Awake()
     {
         pool = new ObjectPool<Poolable>(CreateGameObject, OnTakePoolableFromPool, OnReturnPoolableToPool);
         poolableObject.PoolableObject.gameObject.SetActive(false);
         for (int i = 0; i < poolableObject.PoolSize; i++)
-        {
-            var poolObject = pool.Get();
+        {            var poolObject = pool.Get();
+            poolObject.gameObject.transform.position = GetRandomPosition().position;
             poolObject.transform.SetParent(gameObject.transform);
         }
-    }
-
-    private void Update()
-    {//gameObject.transform.position = ChooseRandomPosition();
-        InactiveCount = pool.CountInactive;
-        ActiveCount = pool.CountActive;     
     }
 
     private Poolable CreateGameObject()
@@ -42,6 +32,7 @@ public class ObjectPooler : MonoBehaviour
 
     private void OnTakePoolableFromPool(Poolable poolable)
     {
+        poolable.gameObject.transform.position = GetRandomPosition().position;
         poolable.gameObject.SetActive(true);
     }
 
@@ -50,9 +41,10 @@ public class ObjectPooler : MonoBehaviour
         poolable.gameObject.SetActive(false);
     }
 
-    private void ChooseRandomPosition()
+    private Transform GetRandomPosition()
     {
-     // to do random placement
+        var index = UnityEngine.Random.Range(0, positions.Count + 1);
+        return positions[index];
     }
 
 }
