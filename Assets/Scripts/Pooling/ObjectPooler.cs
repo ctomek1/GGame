@@ -18,8 +18,6 @@ public class ObjectPooler : MonoBehaviour
         for (int i = 0; i < poolableObject.PoolSize; i++)
         {
             var poolObject = pool.Get();
-            poolObject.gameObject.SetActive(false);
-            poolObject.gameObject.transform.position = GetRandomPosition().position;
             poolObject.transform.SetParent(gameObject.transform);
         }
     }
@@ -33,13 +31,15 @@ public class ObjectPooler : MonoBehaviour
 
     private void OnTakePoolableFromPool(Poolable poolable)
     {
+        Debug.LogError("siema");
         poolable.gameObject.transform.position = GetRandomPosition().position;
-        poolable.gameObject.SetActive(true);
+        poolable.gameObject.SetActive(false);
     }
 
     private void OnReturnPoolableToPool(Poolable poolable)
     {
-        poolable.gameObject.SetActive(false);
+        
+        poolable.gameObject.transform.position = GetRandomPosition().position;
     }
 
     private Transform GetRandomPosition()
