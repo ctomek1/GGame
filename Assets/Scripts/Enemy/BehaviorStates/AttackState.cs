@@ -12,6 +12,11 @@ namespace StateMachine
             player = FindObjectOfType<PlayerView>();
         }
 
+        private void OnEnable()
+        {
+            Target = null;
+        }
+
         public override Type Tick()
         {
             if (!player.IsPlayerAlive)

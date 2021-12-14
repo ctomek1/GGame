@@ -13,6 +13,10 @@ namespace StateMachine
             GetComponent<SphereCollider>().radius = weaponView.WeaponRangeForEnemies;
             player = FindObjectOfType<PlayerView>();
         }
+        private void OnEnable()
+        {
+            Target = null;
+        }
 
         public override Type Tick()
         {
