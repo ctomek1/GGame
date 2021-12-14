@@ -29,7 +29,6 @@ namespace Health
             if(isInvincible == false)
             {                
                 hpPoints -= hpLoss;
-                Debug.LogError(hpPoints);
                 if (CheckIfDead())
                 {
                     OnCharacterDead?.Invoke();
