@@ -1,15 +1,27 @@
 using System;
 using UnityEngine;
+using Views;
 
-public class Damagable : MonoBehaviour
+namespace Health
 {
-    public event Action<float> OnDamageTaken;
-
-    private void OnCollisionEnter(Collision other)
+    public class Damagable : MonoBehaviour
     {
-        if (other.gameObject.TryGetComponent(out DamageDealer damageDealer))
+        public event Action<float> OnDamageTaken;
+
+        private void OnCollisionEnter(Collision other)
         {
-            OnDamageTaken?.Invoke(damageDealer.Damage);
+            if (!GetComponent<WeaponView>())
+            {
+                if (other.gameObject.TryGetComponent(out DamageDealer damageDealer))
+                {
+                    OnDamageTaken?.Invoke(damageDealer.Damage);
+                    if(other.gameObject.CompareTag("Bullet"))
+                    {
+                        Destroy(other.gameObject);
+                    }                
+                }
+            }   
         }
     }
 }
+
