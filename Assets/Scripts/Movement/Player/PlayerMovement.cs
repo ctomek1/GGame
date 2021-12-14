@@ -2,22 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
 
-    private float maxSpeed = 10;
-    private PlayerInput playerInput;
     private Rigidbody rb;
+    private PlayerInput playerInput;
     private Vector3 mouseWorldPosition;
 
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
+        rb = GetComponent<Rigidbody>();
     }
 
     public void HandleMovement()
