@@ -8,6 +8,9 @@ namespace Views
     {
         [SerializeField] GameModel gameModel;
         [SerializeField] TimeLeftUI timerToGameOver;
+        [SerializeField] KilledEnemiesUI killCounterDisplay;
+
+        private int killCounter;
 
         void Start()
         {
@@ -16,8 +19,16 @@ namespace Views
 
         void Update()
         {
+            Debug.LogError((int)gameModel.timeUpTimer);
             gameModel.Evaluate(Time.deltaTime);
             timerToGameOver.SetTimer((int)gameModel.timeUpTimer);
+            killCounterDisplay.SetDisplay(killCounter);
+        }
+        
+        public void OnEnemyKilled()
+        {
+            gameModel.IncrementTimerOnEnemyKill();
+            killCounter++;
         }
     }
 }
