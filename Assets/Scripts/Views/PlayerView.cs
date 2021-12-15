@@ -50,11 +50,21 @@ namespace Views
 
         Vector3 GetFireDestination()
         {
-            var ray = cam.ViewportPointToRay(
-                new Vector3(Input.mousePosition.x,
-                    Input.mousePosition.y,
-                    Input.mousePosition.z));
-            return Physics.Raycast(ray, out var hit) ? hit.point : ray.GetPoint(1000);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if(hit.collider.gameObject.CompareTag("Enemy"))
+                {
+                    return hit.collider.transform.position;
+                }
+                else
+                {
+                    return hit.point;
+                }
+            }
+            else return new Vector3();
         }
 
         public void Die()
