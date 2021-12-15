@@ -24,6 +24,11 @@ namespace Health
             damagable.OnDamageTaken += LoseHp;
         }
 
+        private void OnDisable()
+        {
+            damagable.OnDamageTaken -= LoseHp;
+        }
+
         private void LoseHp(float hpLoss)
         {            
             if(isInvincible == false)
