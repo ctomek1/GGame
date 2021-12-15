@@ -498,6 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2109271442}
   - component: {fileID: 2109271443}
+  - component: {fileID: 2109271444}
   m_Layer: 0
   m_Name: ObjectPooler
   m_TagString: Untagged
@@ -541,6 +542,21 @@ MonoBehaviour:
   - {fileID: 1793453928}
   - {fileID: 1264712937}
   - {fileID: 2074865442}
+  - {fileID: 325478842}
+--- !u!114 &2109271444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109271441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f0a57bdc05f9d438dcf96ec815a364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolableObject: {fileID: 11400000, guid: 236d3f58b057a5c47adb9e1978e1f97f, type: 2}
+  positions:
   - {fileID: 325478842}
 --- !u!1001 &2977866765089212760
 PrefabInstance:
