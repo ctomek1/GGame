@@ -11,12 +11,15 @@ public class ObjectPooler : MonoBehaviour
     [SerializeField] private List<Transform> positions;
 
     ObjectPool<Poolable> pool;
+    int inactiveCount;
 
     public ObjectPool<Poolable> Pool { get => pool; set => pool = value; }
+    public int InactiveCount { get => inactiveCount; set => inactiveCount = value; }
 
     private void Awake()
     {
         Pool = new ObjectPool<Poolable>(CreateGameObject, OnTakePoolableFromPool, OnReturnPoolableToPool);
+        InactiveCount = pool.CountInactive;
     }
 
     private Poolable CreateGameObject()
@@ -28,19 +31,19 @@ public class ObjectPooler : MonoBehaviour
 
     private void OnTakePoolableFromPool(Poolable poolable)
     {
-        poolable.gameObject.transform.position = GetRandomPosition().position;
+        poolable.gameObject.transform.position = GetRandomPosition();
         poolable.gameObject.SetActive(true);
     }
 
     private void OnReturnPoolableToPool(Poolable poolable)
     {       
-        poolable.gameObject.transform.position = GetRandomPosition().position;
+        poolable.gameObject.transform.position = GetRandomPosition();
     }
 
-    private Transform GetRandomPosition()
+    private Vector3 GetRandomPosition()
     {
         var index = UnityEngine.Random.Range(0, positions.Count);
-        return positions[index];
+        return positions[index].position + new Vector3(UnityEngine.Random.Range(0, 2), 0, UnityEngine.Random.Range(0, 2));
     }
 
 }

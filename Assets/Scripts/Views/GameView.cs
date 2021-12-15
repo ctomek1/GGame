@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using Wave;
 using Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,16 +11,21 @@ namespace Views
         [SerializeField] GameModel gameModel;
         [SerializeField] TimeLeftUI timerToGameOver;
         [SerializeField] KilledEnemiesUI killCounterDisplay;
+        [SerializeField] WaveManager waveManager;
+
+        public event Action OnWaveCompleted;
 
         private int killCounter;
 
         void Start()
         {
-            gameModel.Init();
+            waveManager.ManageWave();
+            gameModel.Init();      
         }
 
         void Update()
         {
+            waveManager.ManageWave();         
             gameModel.Evaluate(Time.deltaTime);
             timerToGameOver.SetTimer((int)gameModel.timeUpTimer);
             killCounterDisplay.SetDisplay(killCounter);
@@ -35,6 +40,8 @@ namespace Views
         public void ResetGame()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        }       
+
+        
     }
 }
