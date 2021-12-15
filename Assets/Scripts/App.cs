@@ -15,7 +15,7 @@ public class App : MonoBehaviour
     {
         playerController = new PlayerController(this, Views.PlayerView.Health);
         logController = new LogController();
-        gameController = new GameController();
+        gameController = new GameController(this);
         weaponController = new WeaponController(this);
         
     }
