@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Models
@@ -10,8 +11,11 @@ namespace Models
 
         [SerializeField] float timeUp = 5f;
         [SerializeField] float incrementOnKill = 5f;
+        [SerializeField] List<WaveModel> waves;
 
         public float timeUpTimer;
+
+        public List<WaveModel> Waves { get => waves; set => waves = value; }
 
         public void Init()
         {

@@ -7,10 +7,11 @@ namespace Controllers
     {
         List<DifficultyLevelModel> difficulty;
         Health.Health playerHealth;
+        App app;
 
-        public GameController()
-        { 
-            
+        public GameController(App app)
+        {
+            this.app = app;
         }
     }
 }
