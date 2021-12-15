@@ -11,6 +11,7 @@ namespace Views
         [SerializeField] Transform nozzle;
         [SerializeField] float weaponRangeForEnemies;
         [SerializeField] Animator anim;
+        [SerializeField] ParticleSystem shotParticle;
 
         float timeToFire;
         float bulletsInMagazine;
@@ -53,6 +54,7 @@ namespace Views
         {
             var nozzlePosition = nozzle.position;
             var go = Instantiate(weaponModel.ProjectilePrefab, nozzlePosition, Quaternion.identity);
+            shotParticle.Play();
             var rigid = go.GetComponent<Rigidbody>();
             rigid.velocity = (destination - nozzlePosition).normalized * weaponModel.ProjectileSpeed;
         }
