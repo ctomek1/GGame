@@ -12,33 +12,28 @@ public class ObjectPooler : MonoBehaviour
 
     ObjectPool<Poolable> pool;
 
+    public ObjectPool<Poolable> Pool { get => pool; set => pool = value; }
+
     private void Awake()
     {
-        pool = new ObjectPool<Poolable>(CreateGameObject, OnTakePoolableFromPool, OnReturnPoolableToPool);
-        for (int i = 0; i < poolableObject.PoolSize; i++)
-        {
-            var poolObject = pool.Get();
-            poolObject.transform.SetParent(gameObject.transform);
-        }
+        Pool = new ObjectPool<Poolable>(CreateGameObject, OnTakePoolableFromPool, OnReturnPoolableToPool);
     }
 
     private Poolable CreateGameObject()
     {
         var poolable = Instantiate(poolableObject.PoolableObject);
-        poolable.SetPool(pool);
+        poolable.SetPool(Pool);
         return poolable;
     }
 
     private void OnTakePoolableFromPool(Poolable poolable)
     {
-        Debug.LogError("siema");
         poolable.gameObject.transform.position = GetRandomPosition().position;
-        poolable.gameObject.SetActive(false);
+        poolable.gameObject.SetActive(true);
     }
 
     private void OnReturnPoolableToPool(Poolable poolable)
-    {
-        
+    {       
         poolable.gameObject.transform.position = GetRandomPosition().position;
     }
 
