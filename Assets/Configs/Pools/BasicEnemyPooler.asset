@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BasicEnemyPooler
   m_EditorClassIdentifier: 
   poolableObject: {fileID: 4964421387601054766, guid: 14bea5245fbda37409022c3214886144, type: 3}
-  poolSize: 20
+  poolSize: 5
