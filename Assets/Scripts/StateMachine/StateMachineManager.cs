@@ -40,7 +40,6 @@ namespace StateMachine
         {
             CurrentState = availableStates[nextState];
             OnStateChanged?.Invoke(CurrentState);
-            Debug.LogError(CurrentState);
         }
     }   
 

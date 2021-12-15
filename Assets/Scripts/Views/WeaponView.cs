@@ -33,8 +33,6 @@ namespace Views
         {
             if(!isPlayingAnimation)
             {
-                Debug.LogError(HasToReload);
-                Debug.LogError(currentBulletsInMagazine);
                 if (!HasToReload)
                 {
                     if (CanFire(Time.time))
@@ -42,7 +40,6 @@ namespace Views
                         timeToFire = Time.time + weaponModel.FireCooldown;
                         ShootProjectile(destination);
                         currentBulletsInMagazine--;
-                        Debug.LogError(currentBulletsInMagazine);
                     }
                 }
                 else
