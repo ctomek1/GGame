@@ -15,9 +15,9 @@ namespace Views
         [SerializeField] PlayerMovement playerMovement;
         [SerializeField] Health.Health health;
         [SerializeField] GameObject restartButton;
+
         private static readonly int DIE_TRIGGER = Animator.StringToHash("Die");
         private bool isPlayerAlive = true;
-
         private int enemiesKilled;
 
         public bool IsPlayerAlive { get => isPlayerAlive; }
@@ -33,6 +33,11 @@ namespace Views
         private void OnEnable()
         {
             health.OnCharacterDead += PlayerDied;
+        }
+
+        private void OnDisable()
+        {
+            health.OnCharacterDead -= PlayerDied;
         }
 
         void Update()
