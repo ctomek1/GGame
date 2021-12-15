@@ -25,7 +25,6 @@ namespace Wave
                     poolable.gameObject.SetActive(true);
                     spawnedEnemies++;
                     poolable.OnPoolableDisabled += DecreaseEnemiesCounter;
-                    Debug.LogError(poolable);
                 }                
                 waveIndex++;               
             }

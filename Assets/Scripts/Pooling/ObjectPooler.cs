@@ -38,6 +38,7 @@ public class ObjectPooler : MonoBehaviour
     private void OnReturnPoolableToPool(Poolable poolable)
     {       
         poolable.gameObject.transform.position = GetRandomPosition();
+        poolable.gameObject.SetActive(false);
     }
 
     private Vector3 GetRandomPosition()

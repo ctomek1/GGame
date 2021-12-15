@@ -9,9 +9,7 @@ namespace Models
     public class ObjectPoolerModel : ScriptableObject
     {
         [SerializeField] private Poolable poolableObject;
-        [SerializeField] private int poolSize;
 
         public Poolable PoolableObject { get => poolableObject; set => poolableObject = value; }
-        public int PoolSize { get => poolSize; set => poolSize = value; }
     }
 }
