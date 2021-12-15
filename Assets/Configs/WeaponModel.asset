@@ -16,4 +16,4 @@ MonoBehaviour:
   projectileSpeed: 50
   projectilePrefab: {fileID: 8664306333909830739, guid: 4e27161daca3aa647983eddd324a84f9, type: 3}
   reloadTime: 3
-  bulletsInMagazine: 2
+  bulletsInMagazine: 10
