@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.58, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4524411843370912604}
   m_RootOrder: 0
@@ -39,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4524411843370912604}
+  - component: {fileID: 5165614161078133362}
   - component: {fileID: 8254289791347980341}
   - component: {fileID: 6085371605961223366}
   - component: {fileID: 1345807823294945143}
@@ -60,11 +62,32 @@ Transform:
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0.438, y: 0.859, z: -0.55}
   m_LocalScale: {x: 1, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5191649549783770484}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &5165614161078133362
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925161300814290437}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d10d07e43783f784faad6da460aa38fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8254289791347980341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,6 +103,7 @@ MonoBehaviour:
   weaponModel: {fileID: 11400000, guid: 341171c9eca946a4cab33b6cfb147011, type: 2}
   nozzle: {fileID: 5191649549783770484}
   weaponRangeForEnemies: 0
+  anim: {fileID: 5165614161078133362}
 --- !u!33 &6085371605961223366
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -99,6 +123,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
